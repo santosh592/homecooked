@@ -1,0 +1,71 @@
+<div class="" id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row row-stat">
+            <div class="col-lg-9">
+
+                <div class="card" *ngFor="let food of foodNearBy|filter:searchTerm ; let i = index">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="profile-img">
+                                    <img src="assets/images/{{food.chiefProfilePic}}" />
+
+                                </div>
+                                <div class="text-center">
+                                    <small>{{food.chiefName}}</small>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3">
+                                <h5 class="card-title">{{food.mealName}}</h5>
+                                <small class="card-text">{{food.description}}</small>
+                                <div>
+
+                                    <ngb-rating [(rate)]="food.foodRating" [readonly]="true" [max]="5">
+                                        <ng-template let-fill="fill" let-index="index">
+                                            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                                        </ng-template>
+                                    </ngb-rating>
+                                    <pre>Avg Rating: <b>{{food.foodRating}}</b></pre>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <h5 class="card-title">{{food.price}}</h5>
+                                <br><br><br><br>
+                                <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                                <div class="text-right"><small class="card-text">{{food.distanceFromUser}}</small></div>
+
+                            </div>
+                            <div class="col-md-3">
+
+                                <div class="form-group float-right">
+                                    <label for="foodquantity">Quantity</label><br>
+                                    <select class="form-control" id="foodquantity">
+                                        <option selected>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <br><br><br><br>
+                                <br><br>
+                                <div>
+                                    <a href="#" class="btn btn-outline-warning">ADD TO CART</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div><!-- col-md-4 -->
+
+
+
+
+        </div>
+    </div>

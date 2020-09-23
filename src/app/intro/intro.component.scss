@@ -1,0 +1,11 @@
+.introwrapper {
+    background-color: #187e87;
+    min-height: 800px;
+    width: 100%;
+    z-index: 1000;
+    &:after {
+        clear: both;
+        display: block;
+        content: '';
+    }
+}

@@ -1,0 +1,53 @@
+<div class="sidebar hidden-sm-down">
+    <ul class="nav in" id="side-menu">
+
+
+        <!-- <li><a [routerLink]="['/dashboard']" [routerLinkActive]="['active']" class="waves-effect"><i class="fa fa-home"></i> <span
+                class="hide-menu">Dashboard</span></a></li> -->
+        <!-- <li class=""><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-envelope-o"></i> <span
+                class="hide-menu"> Mailbox <span class="fa arrow"></span><span
+                class="label label-rouded label-danger pull-right">6</span></span></a>
+        </li> -->
+        <!-- <li>
+            <a [routerLink]="['/ui-elements']" [routerLinkActive]="['active']">
+                <i class="fa fa-edit"></i>
+                <span class="hide-menu">UI Elements</span>
+            </a>
+        </li>
+        <li>
+            <a  [routerLink]="['/forms']" [routerLinkActive]="['active']">
+                <i class="fa fa-edit"></i>
+                <span class="hide-menu">Form</span>
+            </a>
+        </li>
+        <li>
+            <a  [routerLink]="['/tables']" [routerLinkActive]="['active']">
+                <i class="fa fa-bars"></i>
+                <span class="hide-menu">Tables</span>
+            </a>
+        </li> -->
+        
+        <div class="text-center">
+            <br><br>
+            <h4>Filters</h4><hr><br>
+            <div class="btn-group-md btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-primary form-check-label active" (click)="filterDelivery()">
+                  <input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off"  checked>
+                  Delivery
+                </label>
+                <label class="btn btn-primary form-check-label" (click)="filterPickup()">
+                  <input  class="form-check-input" type="radio" name="options" id="option2" autocomplete="off" > pickup
+                </label>
+                </div>
+                <br><br>
+            <h4>Rating</h4>
+            <ngb-rating [(rate)]="rateFilter" [max]="5" (click)="filterRating($event,rateFilter)">
+                <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                </ng-template>
+            </ngb-rating>
+
+            <hr>
+        </div>
+    </ul>
+</div>
