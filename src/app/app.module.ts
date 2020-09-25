@@ -38,7 +38,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemFoodService),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDdU7CtBT0K3P4CWgDannU8_h3F1CGoDeU',
+      apiKey: '',
       libraries: ['places']
     }),
     RouterModule.forRoot(routes, { useHash: true })
