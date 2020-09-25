@@ -2,6 +2,7 @@
     <div class="container-fluid">
         <div class="row row-stat">
             <div class="col-lg-9">
+                <!-- <ngx-skeleton-loader animation="p"> -->
 
                 <div class="card" *ngFor="let food of foodNearBy|filter:searchTerm ; let i = index">
                     <div class="card-body">
@@ -59,8 +60,57 @@
                         </div>
                     </div>
                 </div>
+                <div class="card" *ngIf="foodNearBy.length === 0" class="skeleton">
+                    <div *ngFor="let fake of generateFake(4)" class="card-layout">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="profile-img">
 
 
+                                    </div>
+                                    <div class="text-center">
+                                        <small></small>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-3">
+                                    <h5 class="card-title"></h5>
+                                    <small class="card-text"></small>
+                                    <div>
+
+                                        <h3></h3>
+                                        <h3></h3>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <h5></h5>
+                                    <br><br><br><br>
+                                    <i></i>
+                                    <div class="text-right"><small class="card-text"></small></div>
+
+                                </div>
+                                <div class="col-md-3">
+
+                                    <div>
+                                        <label for="foodquantity">
+                                            <h4></h4>
+                                        </label><br>
+                                        <h3></h3>
+                                    </div>
+                                    <br><br><br><br>
+                                    <br><br>
+                                    <div>
+                                        <h3></h3>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </ngx-skeleton-loader> -->
 
             </div><!-- col-md-4 -->
 

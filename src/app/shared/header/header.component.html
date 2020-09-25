@@ -1,19 +1,27 @@
 <!--Navbar-->
 <nav class="sticky-top scrolling-navbar">
-  <div class="headerwrapper navbar navbar-expand-lg navbar-dark ">
+  <div class="headerwrapper navbar navbar-expand-lg navbar-dark">
     <!-- Navbar brand -->
     <br><br>
     <div class="header-left">
-      <img src="/assets/images/logo.png" class="logo" />
-
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/logo.png" class="logo" width="100" height="110" alt="" />
+      </a>
 
     </div>
 
+    <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+
+    <div class="col-md-4 text-white">
+      
+            <a href="/"  class="btn btn-outline-info tsbutton text-white">{{currentPlace}}</a>
+    </div>
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
       aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
 
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="basicExampleNav">
@@ -51,11 +59,11 @@
     </h4> -->
         <div class="vertical"></div>
         <!-- <div class="col-md-1"></div> -->
-        <form class="form-group-lg col-md-6">
+        <form class="form-group-lg col-md-9">
           <div class="md-form my-0">
             <br>
             <input [(ngModel)]="searchText" (input)="filterItem()" name="something" class="form-control mr-sm-2"
-              type="text" placeholder="Search" aria-label="Search">
+              type="text" placeholder="Chef's,food,any" aria-label="Search">
           </div>
         </form>
 
@@ -69,11 +77,12 @@
     <!-- Collapsible content -->
   </div>
   <div class="row">
-    <div class="col-lg-1"> </div>
-    <div class="col-lg-1"></div>
+    <div class="col-sm-1"> </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div>
     <div class="col-md-6">
-     <h4> <a *ngFor="let foodCategory of foodCategorys; let i = index" class="badge badge-pill badge-light"
-          (click)="filterFoodByCategory(foodCategory)">{{foodCategory}}</a> </h4>
+      <h5> <a *ngFor="let foodCategory of foodCategorys; let i = index" class="badge-pill badge-light"
+          (click)="filterFoodByCategory(foodCategory)">{{foodCategory}}</a> </h5>
     </div>
   </div>
 </nav>

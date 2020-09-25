@@ -9,6 +9,10 @@ import Foodnearme from '../assets/json/FoodNearme.json';
 })
 export class DashboardComponent implements OnInit {
 
+  private SEARCH_TERM: string = 'searchTerm';
+  private RATING: string = 'rating';
+  private SEARCH_DELIVERY_OPTIONS: string = 'searchDeliveryOptions';
+  private SEARCH_BY_CATEGORY: string = 'searchByCategory'
 
   foodNearBy: any = []
   searchTerm: any;
@@ -16,6 +20,7 @@ export class DashboardComponent implements OnInit {
   rating: number;
   deliveryOpts: any;
   typeOfFood: any;
+
 
   constructor(private route: ActivatedRoute) {
     console.log(Foodnearme)
@@ -30,12 +35,13 @@ export class DashboardComponent implements OnInit {
     this.filterFoodByTypeOfFood()
     this.filterFoodByAll()
 
+    
   }
 
   filterFoodByAll() {
     this.route.queryParams
       .subscribe(params => {
-        this.searchTerm = params['searchTerm']
+        this.searchTerm = params[this.SEARCH_TERM]
 
       })
 
@@ -46,7 +52,7 @@ export class DashboardComponent implements OnInit {
   filterFoodByRating() {
     this.route.queryParams
       .subscribe(params => {
-        this.rating = params['rating']
+        this.rating = params[this.RATING]
         console.log(this.rating);
         if (!isNaN(this.rating)) {
           this.foodNearBy = Foodnearme.filter(rateingFilter => rateingFilter.foodRating == this.rating.toString())
@@ -57,12 +63,12 @@ export class DashboardComponent implements OnInit {
   filterFoodByDeliveryType() {
     this.route.queryParams
       .subscribe(params => {
-        this.deliveryOpts = params['searchDeliveryOptions']
+        this.deliveryOpts = params[this.SEARCH_DELIVERY_OPTIONS]
         console.log(this.deliveryOpts);
 
         if (this.deliveryOpts != null) {
           console.log(this.deliveryOpts);
-          this.foodNearBy = Foodnearme.filter(rateingFilter => rateingFilter.deliveryOptions == this.deliveryOpts)
+          this.foodNearBy = Foodnearme.filter(deliveryTypeFilter => deliveryTypeFilter.deliveryOptions == this.deliveryOpts)
         }
       })
   }
@@ -71,12 +77,22 @@ export class DashboardComponent implements OnInit {
 
     this.route.queryParams
       .subscribe(params => {
-        this.typeOfFood = params['searchByCategory']
+        this.typeOfFood = params[this.SEARCH_BY_CATEGORY]
         console.log(this.typeOfFood);
         if (this.typeOfFood != null) {
-          this.foodNearBy = Foodnearme.filter(rateingFilter => rateingFilter.foodType == this.typeOfFood)
+          if (this.typeOfFood === 'All') { this.foodNearBy = Foodnearme } else {
+            this.foodNearBy = Foodnearme.filter(foodTypeFilter => foodTypeFilter.foodType == this.typeOfFood)
+          }
         }
       })
+  }
+
+  public generateFake(count: number): Array<number> {
+    const indexes = [];
+    for (let i = 0; i < count; i++) {
+      indexes.push(i);
+    }
+    return indexes;
   }
 
 }

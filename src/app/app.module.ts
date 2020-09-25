@@ -21,6 +21,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemFoodService } from './service/inmemorydbservice';
 import { IntroComponent } from './intro/intro.component';
 import { AgmCoreModule } from '@agm/core';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -32,12 +33,12 @@ import { AgmCoreModule } from '@agm/core';
     LeftNavTemplateComponent,
     NavigationComponent ,DashboardComponent, ChefboardComponent, ChefnavigationComponent, ChefdashboardComponent, IntroComponent ],
   imports: [
-    BrowserModule,NgbModule,Ng2SearchPipeModule,
+    BrowserModule,NgbModule,Ng2SearchPipeModule,NgxSkeletonLoaderModule,
     AppRoutingModule,FormsModule,ReactiveFormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemFoodService),
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR-API-KEY-HERE',
+      apiKey: 'AIzaSyDdU7CtBT0K3P4CWgDannU8_h3F1CGoDeU',
       libraries: ['places']
     }),
     RouterModule.forRoot(routes, { useHash: true })

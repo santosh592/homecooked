@@ -1,6 +1,7 @@
 .introwrapper {
-    background-color: #187e87;
-    min-height: 800px;
+    //background-color: #187e87;
+    background-image: linear-gradient(to right, #187e87 , #81e7f0);
+    height: 100vh;
     width: 100%;
     z-index: 1000;
     &:after {
@@ -8,4 +9,8 @@
         display: block;
         content: '';
     }
+}
+.tsbutton {
+    
+    color: rgb(235, 228, 228);
 }

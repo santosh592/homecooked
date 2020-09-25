@@ -1,18 +1,32 @@
-<div class="container-fluid">
+<div class="container-fluid introwrapper" >
+
     <div class="row">
-        <div class="col-lg-8 introwrapper">
-           
-            <form class="form-inline md-form mr-auto mb-4">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
-              </form>
-              
+
+
+        <div class="col-sm-1">
+            <br>
+            <a href="/"  class="btn btn-outline-info tsbutton">HOME</a>
+        </div>
+
+        <div class="col-lg-6">
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-lg-7 input-group mb-3">
+                    <input [(ngModel)]="address" type="text" class="form-control" aria-label="Search"
+                        aria-describedby="basic-addon2" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest food" autocorrect="off" autocapitalize="off" spellcheck="off" #search>
+                    <div class="input-group-append">
+                        <button class="btn btn-raised btn-outline-info tsbutton" type="button" (click)="goToFoodcart(address)" >Food Around Me</button>
+                    </div>
+                </div>
+            </div>
 
         </div>
-        <div class="col-lg-8">
-            <agm-map [latitude]="map.lat" [longitude]="map.lng" style="height: 300px">
-                <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>
-              </agm-map>
+        <div class="col-sm-5">
+            <agm-map [latitude]="lat" [longitude]="lng" style="height:100vh;">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
 
         </div>
 

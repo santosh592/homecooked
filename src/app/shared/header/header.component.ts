@@ -9,25 +9,33 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   @Input()
   searchText: string
-  foodCategorys: any = ['All','dishes','snacks','pickles','more','more','more']
+  foodCategorys: any = ['All', 'dishes', 'snacks', 'pickles', 'more', 'more', 'more']
+
+  currentLocation: string;
+  currentPlace: string;
 
   constructor(private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
 
+    this.getCurrentLocationFromLocal()
 
+  }
+  getCurrentLocationFromLocal() {
+    this.currentLocation = localStorage.getItem("currentLocation")
+    this.currentPlace = this.currentLocation.split(',')[0]
   }
 
 
   filterItem() {
 
-    this.router.navigate(['/foodcart/search'], { queryParams: { searchTerm: this.searchText } })
+    this.router.navigate(['/foodcart'], { queryParams: { searchTerm: this.searchText } })
 
   }
-  filterFoodByCategory(foodCategory:string){
+  filterFoodByCategory(foodCategory: string) {
     console.log(foodCategory)
-    this.router.navigate(['/foodcart/timeline'], { queryParams: { searchByCategory: foodCategory } })
+    this.router.navigate(['/foodcart'], { queryParams: { searchByCategory: foodCategory } })
   }
 
 }

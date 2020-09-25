@@ -49,7 +49,7 @@ export const routes: Routes = [{
       },
     },
     {
-      path: 'dashboard/search',
+      path: 'search',
       //loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
       component: DashboardComponent,
       data: {
